@@ -1,0 +1,261 @@
+<view>
+  <!-- 顶部导航栏 -->
+  <Tabs class="top_navigation" tabs="{{tabs}}" binditemChange="handleItemChange">
+
+    <!-- **********************************首页-推荐布局******************************************************************************** -->
+    <block wx:if="{{tabs[0].isActive}}">
+      <view class='indexcontainer'>
+        <!-- 顶部推荐图片轮播 -->
+        <view class='selection'>
+          <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true">
+            <block wx:for="{{imgUrls}}" wx:key="*this">
+              <swiper-item>
+                <image src="{{item}}" class="slide-image" mode='scaleToFill' />
+              </swiper-item>
+            </block>
+          </swiper>
+        </view>
+
+        <!-- 头部文字 -->
+        <view class="header">
+          <text class="guess" style='margin-left: 5px;'>猜你喜欢</text>
+          <text class='all'>文多多推荐</text>
+        </view>
+        <!-- 内容 -->
+        <view class='content'>
+          <view class='content-item' wx:for="{{contentImgUrls}}" wx:key="url" wx:for-item="item">
+            <!-- 图片 -->
+            <image src="{{item.url}}" class="slide-image" mode='scaleToFill' />
+            <!-- 图片上的文字说明 -->
+            <view class='content-item-title'>
+              <text>{{item.title}}</text>
+            </view>
+            <view class='content-item-author'>
+              <text>{{item.author}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <!-- ************************************首页-小学布局******************************************************************************* -->
+    <block wx:elif="{{tabs[1].isActive}}">
+      <!-- 顶部推荐图片轮播 -->
+      <view class='selection'>
+        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true">
+          <block wx:for="{{imgUrls}}" wx:key="*this">
+            <swiper-item>
+              <image src="{{item}}" class="slide-image" mode='scaleToFill' />
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+
+      <!-- 文章list -->
+      <block wx:for="{{ranks}}" wx:key="{{item.bookid}}">
+        <navigator url="/pages/article/article?bookid={{item.bookid}}">
+          <view class="primary-content">
+            <view class="primary-image-position">
+              <image class="primary-image" src="{{item.url}}" />
+              <view class="text">
+                <text class="text_title"> {{item.title}}</text>
+                <text class="text_author"> {{item.author}}</text>
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </block>
+    </block>
+
+    <!-- ************************************首页-初中布局******************************************************************************* -->
+    <block wx:elif="{{tabs[2].isActive}}">
+      <view class="grade-title">
+        <text class="grade-title-content">七年级上册</text>
+      </view>
+      <view>
+        <button class="button1" size="mini" bindtap="yueyanglouji">咏雪-《世说新语》</button>
+        <button class="button1" size="mini">陈太丘与友期行-《世说新语》</button>
+        <button class="button1" size="mini">《论语》十二章</button>
+        <button class="button1" size="mini">诫子书-诸葛亮</button>
+        <button class="button1" size="mini">狼-蒲松龄</button>
+        <button class="button1" size="mini">穿井得一人-《吕氏春秋》</button>
+        <button class="button1" size="mini">杞人忧天-《列子》</button>
+      </view>
+
+      <view class="grade-title">
+        <text class="grade-title-content">七年级下册</text>
+      </view>
+      <view>
+        <button class="button1" size="mini">孙权劝学-《资治通鉴》</button>
+        <button class="button1" size="mini">卖油翁-欧阳修</button>
+        <button class="button1" size="mini">陋室铭-刘禹锡</button>
+        <button class="button1" size="mini">爱莲说-周敦颐</button>
+        <button class="button1" size="mini">河中石兽-纪昀</button>
+      </view>
+
+      <view class="grade-title">
+        <text class="grade-title-content">八年级上册</text>
+      </view>
+      <view>
+        <button class="button1" size="mini">三峡-郦道元</button>
+        <button class="button1" size="mini">答谢中书书-陶弘景</button>
+        <button class="button1" size="mini">记承天寺夜游-苏轼</button>
+        <button class="button1" size="mini">与朱元思书-吴均</button>
+        <button class="button1" size="mini">富贵不能赢-《孟子》</button>
+        <button class="button1" size="mini">生于忧患，死于安乐-《孟子》</button>
+        <button class="button1" size="mini">愚公移山-《列子》</button>
+        <button class="button1" size="mini">周亚夫军细柳-司马迁</button>
+      </view>
+
+      <view class="grade-title">
+        <text class="grade-title-content">八年级下册</text>
+      </view>
+      <view class="content1">
+        <button class="button1" size="mini">桃花源记-陶渊明</button>
+        <button class="button1" size="mini">小石潭记-柳宗元</button>
+        <button class="button1" size="mini">核舟记-魏学洢</button>
+        <button class="button1" size="mini">北冥有鱼-《庄子》</button>
+        <button class="button1" size="mini">庄子与惠子游于濠梁之上</button>
+        <button class="button1" size="mini">虽有佳肴-《礼记》</button>
+        <button class="button1" size="mini">大道之行也-《礼记》</button>
+        <button class="button1" size="mini">马说-韩愈</button>
+      </view>
+
+      <view class="grade-title">
+        <text class="grade-title-content">九年级上册</text>
+      </view>
+      <view>
+        <button class="button1" size="mini">岳阳楼记-范仲淹</button>
+        <button class="button1" size="mini">醉翁亭记-欧阳修</button>
+        <button class="button1" size="mini">湖心亭看雪-张岱</button>
+      </view>
+
+      <view class="grade-title">
+        <text class="grade-title-content">九年级下册</text>
+      </view>
+      <view>
+        <button class="button1" size="mini">鱼我所欲也</button>
+        <button class="button1" size="mini">唐雎不辱使命</button>
+        <button class="button1" size="mini">送东阳马生序-宋濂</button>
+        <button class="button1" size="mini">曹刿论战-左丘明</button>
+        <button class="button1" size="mini">邹忌讽齐王纳谏</button>
+        <button class="button1" size="mini">出师表-诸葛亮</button>
+      </view>
+    </block>
+
+
+    <!-- ************************************首页-高中布局******************************************************************************* -->
+    <block wx:elif="{{tabs[3].isActive}}">
+
+      <view class="grade-title">
+        <text class="grade-title-content">必修上册</text>
+      </view>
+      <view>
+        <button class="button1" size="mini">劝学-荀子</button>
+        <button class="button1" size="mini">师说-韩愈</button>
+        <button class="button1" size="mini">赤壁赋-韩愈</button>
+        <button class="button1" size="mini">登泰山记-姚鼐</button>
+      </view>
+
+      <view class="grade-title">
+        <text class="grade-title-content">必修下册</text>
+      </view>
+      <view>
+        <button class="button1" size="mini">子路、曾皙、冉有、公西华侍坐</button>
+        <button class="button1" size="mini">齐桓晋文之事</button>
+        <button class="button1" size="mini">庖丁解牛-庄周</button>
+        <button class="button1" size="mini">烛之武退秦师-左丘明</button>
+        <button class="button1" size="mini">鸿门宴-司马迁</button>
+        <button class="button1" size="mini">窦娥冤-关汉卿</button>
+        <button class="button1" size="mini">谏逐客书-李斯</button>
+        <button class="button1" size="mini">与妻书-林觉明</button>
+        <button class="button1" size="mini">促织-蒲松龄</button>
+        <button class="button1" size="mini">谏太宗十思疏-魏征</button>
+        <button class="button1" size="mini">答司马谏议书-王安石</button>
+        <button class="button1" size="mini">阿房宫赋-杜牧</button>
+        <button class="button1" size="mini">六国论-苏洵</button>
+      </view>
+
+      <view class="grade-title">
+        <text class="grade-title-content">选择性必修上册</text>
+      </view>
+      <view>
+        <button class="button1" size="mini">论语十章</button>
+        <button class="button1" size="mini">大学之道-朱熹</button>
+        <button class="button1" size="mini">人皆有不忍之心-孟子</button>
+        <button class="button1" size="mini">老子四章</button>
+        <button class="button1" size="mini">五十之瓠</button>
+        <button class="button1" size="mini">兼爱-墨子</button>
+      </view>
+
+      <view class="grade-title">
+        <text class="grade-title-content">选择性必修中册</text>
+      </view>
+      <view>
+        <button class="button1" size="mini">屈原列传-司马迁</button>
+        <button class="button1" size="mini">苏武传-班固</button>
+        <button class="button1" size="mini">过秦论(上篇)-贾谊</button>
+        <button class="button1" size="mini">五代史伶官传序-欧阳修</button>
+      </view>
+
+      <view class="grade-title">
+        <text class="grade-title-content">选择性必修下册</text>
+      </view>
+      <view>
+        <button class="button1" size="mini">
+          陈情表-李密</button>
+        <button class="button1" size="mini">项脊轩志-归有光</button>
+        <button class="button1" size="mini">兰亭集序-王羲之</button>
+        <button class="button1" size="mini">归去来兮辞并序-陶渊明</button>
+        <button class="button1" size="mini">种树郭橐驼传-柳宗元</button>
+        <button class="button1" size="mini">石钟山记-苏轼</button>
+      </view>
+
+      <view class="grade-title">
+        <text class="grade-title-content">选修(中国古代诗歌散文赏析)</text>
+      </view>
+      <view>
+        <button class="button1" size="mini">
+          过小孤山大孤山-陆游</button>
+        <button class="button1" size="mini">项羽之死-司马迁</button>
+        <button class="button1" size="mini">方山子传-苏轼</button>
+        <button class="button1" size="mini">大铁椎传-魏禧</button>
+        <button class="button1" size="mini">祭十二郎文-韩愈</button>
+        <button class="button1" size="mini">狱中杂记-方苞</button>
+        <button class="button1" size="mini">陶庵梦忆序-张岱</button>
+        <button class="button1" size="mini">春夜宴从弟桃花园序-李白</button>
+        <button class="button1" size="mini">游兰溪-苏轼</button>
+        <button class="button1" size="mini">苦斋记-刘基</button>
+      </view>
+    </block>
+
+
+
+    <!-- ************************************首页-课外布局******************************************************************************* -->
+    <block wx:else>
+      <view class='indexcontainer'>
+        <!-- 顶部推荐图片轮播 -->
+        <view class='selection'>
+          <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true">
+            <block wx:for="{{imgUrls}}" wx:key="*this">
+              <swiper-item>
+                <image src="{{item}}" class="slide-image" mode='scaleToFill' />
+              </swiper-item>
+            </block>
+          </swiper>
+        </view>
+        <!-- 设置文章课外图片及题目 -->
+        <view class='extra-container'>
+          <view wx:for="{{contentImgUrls}}" wx:for-item="item" wx:key="idx" wx:for-index="idx" class='extra-item {{item.styles? "mid-item" : ""}}'>
+            <view class='extra-img'>
+              <image src="{{item.url}}"></image>
+            </view>
+            <button class='extra-text' bindtap="bind{{item.bookid}}">{{item.title}}</button>
+          </view>
+        </view>
+      </view>
+    </block>
+
+  </Tabs>
+
+</view>

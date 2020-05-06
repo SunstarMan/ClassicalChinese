@@ -1,0 +1,128 @@
+<view class='topTabSwiper'>
+  <view class='tab  {{currentData == 0 ? "tabBorer" : ""}}' data-current="0" bindtap='checkCurrent'>原文</view>
+  <view class='tab  {{currentData == 1 ? "tabBorer" : ""}}' data-current="1" bindtap='checkCurrent'>译文</view>
+  <view class='tab  {{currentData == 2 ? "tabBorer" : ""}}' data-current="2" bindtap='checkCurrent'>句译</view>
+  <view class='tab  {{currentData == 3 ? "tabBorer" : ""}}' data-current="3" bindtap='checkCurrent'>注释</view>
+  <view class='tab  {{currentData == 4 ? "tabBorer" : ""}}' data-current="4" bindtap='checkCurrent'>扩展</view>
+</view>
+
+<swiper current="{{currentData}}" class='swiper' style="height:1000px;" bindchange="bindchange">
+
+  <!-- 原文 -->
+  <swiper-item>
+    <view class='swiper_con'>
+      <view wx:for="{{bookContent}}" wx:for-item="item">
+        <view class='bookContent-title'>
+          <text>{{item.title}}</text>
+        </view>
+        <view class='bookContent-author'>
+          <text>{{item.author}}</text>
+        </view>
+
+        <view class="bookContent-main">
+          <text>   庆历四年春，滕子京谪守巴陵郡。越明年，政通人和，百废具兴。乃重修岳阳楼，增其旧制，刻唐贤今人诗赋于其上。属予作文以记之。
+   予观夫巴陵胜状，在洞庭一湖。衔远山，吞长江，浩浩汤汤，横无际涯；朝晖夕阴，气象万千。此则岳阳楼之大观也，前人之述备矣。然则北通巫峡，南极潇湘，迁客骚人，多会于此，览物之情，得无异乎？
+   若夫淫雨霏霏，连月不开，阴风怒号，浊浪排空；日星隐曜，山岳潜形；商旅不行，樯倾楫摧；薄暮冥冥，虎啸猿啼。登斯楼也，则有去国怀乡，忧谗畏讥，满目萧然，感极而悲者矣。
+   至若春和景明，波澜不惊，上下天光，一碧万顷；沙鸥翔集，锦鳞游泳；岸芷汀兰，郁郁青青。而或长烟一空，皓月千里，浮光跃金，静影沉璧，渔歌互答，此乐何极！登斯楼也，则有心旷神怡，宠辱偕忘，把酒临风，其喜洋洋者矣。
+   嗟夫！予尝求古仁人之心，或异二者之为，何哉？不以物喜，不以己悲；居庙堂之高则忧其民；处江湖之远则忧其君。是进亦忧，退亦忧。然则何时而乐耶？其必曰“先天下之忧而忧，后天下之乐而乐”乎。噫！微斯人，吾谁与归？
+   时六年九月十五日。</text>
+        </view>
+      </view>
+    </view>
+  </swiper-item>
+
+  <!-- 译文 -->
+  <swiper-item>
+    <view class='swiper_con'>
+      <view wx:for="{{bookTranslate}}" wx:for-item="item">
+        <view class='bookContent-title'>
+          <text>{{item.title}}</text>
+        </view>
+        <view class="bookContent-main">
+          <text>     庆历四年的春天，滕子京被降职到巴陵郡做太守。隔了一年，政治清明通达，人民安居和顺，各种荒废的事业都兴办起来了。于是重新修建岳阳楼，扩大它原有的规模，把唐代名家和当代人的诗赋刻在它上面。嘱托我写一篇文章来记述这件事情。
+   我观看那巴陵郡的美好景色，全在洞庭湖上。衔接远山，吞没长江，流水浩浩荡荡，无边无际，一天里阴晴多变，气象千变万化。这就是岳阳楼的雄伟景象。前人的记述（已经）很详尽了。那么向北面通到巫峡，向南面直到潇水和湘水，降职的官吏和来往的诗人，大多在这里聚会，（他们)观赏自然景物而触发的感情大概会有所不同吧？
+   像那阴雨连绵，接连几个月不放晴，寒风怒吼，浑浊的浪冲向天空；太阳和星星隐藏起光辉，山岳隐没了形体；商人和旅客（一译：行商和客商）不能通行，船桅倒下，船桨折断；傍晚天色昏暗，虎在长啸，猿在悲啼，（这时）登上这座楼，就会有一种离开国都、怀念家乡，担心人家说坏话、惧怕人家批评指责，满眼都是萧条的景象，感慨到了极点而悲伤的心情。
+   到了春风和煦，阳光明媚的时候，湖面平静，没有惊涛骇浪，天色湖光相连，一片碧绿，广阔无际；沙洲上的鸥鸟，时而飞翔，时而停歇，美丽的鱼游来游去，岸上的香草和小洲上的兰花，草木茂盛，青翠欲滴。有时大片烟雾完全消散，皎洁的月光一泻千里，波动的光闪着金色，静静的月影像沉入水中的玉璧，渔夫的歌声在你唱我和地响起来，这种乐趣（真是）无穷无尽啊！（这时）登上这座楼，就会感到心胸开阔、心情愉快，光荣和屈辱一并忘了，端着酒杯，吹着微风，觉得喜气洋洋了。   </text>
+        </view>
+      </view>
+    </view>
+  </swiper-item>
+
+  <!-- 句译 -->
+  <swiper-item>
+    <view class='swiper_con'>
+      <view wx:for="{{bookSentenceTranslate}}" wx:for-item="item">
+        <view class='bookContent-title'>
+          <text>{{item.title}}</text>
+        </view>
+        <view class="bookSentenceTranslate">
+          <view class="bookSentenceTranslate-original">
+            {{item.original}}
+          </view>
+          <view class="bookSentenceTranslate-translate">
+            {{item.translate}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </swiper-item>
+
+  <!-- 注释 -->
+  <swiper-item>
+    <view class='swiper_con'>
+      <view wx:for="{{bookNotes}}" wx:for-item="item">
+        <view class='bookContent-title'>
+          <text>{{item.title}}</text>
+        </view>
+        <view class="bookSentenceTranslate">
+          <view class="bookSentenceTranslate-original">
+            {{item.word}}
+          </view>
+          <view class="bookSentenceTranslate-translate">
+            {{item.notes}}
+            <text>\n</text>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </swiper-item>
+
+  <!-- 扩展 -->
+  <swiper-item>
+    <view class='swiper_con'>
+      <block wx:for="{{bookExtends}}" wx:for-item="item">
+
+        <!-- 作者介绍 -->
+        <view class="bookExtends-content">
+          <view class="bookExtends-image-position">
+            <image class="bookExtends-image" src="{{item.url}}" />
+            <view class="bookExtends-text">
+              <text class="bookExtends-textTitle"> {{item.authorName}}</text>
+              <text class="bookExtends-textAuthor"> {{item.authorAbout}}</text>
+            </view>
+          </view>
+        </view>
+
+        <!-- 创作背景 -->
+        <view class="bookExtends-content">
+          <view class="bookExtends-background">
+            <text class="bookExtends-backgroundTitle"> 创作背景</text>
+            <text>\n</text>
+            <text> {{item.background}}</text>
+          </view>
+        </view>
+
+        <!-- 学习视频 -->
+        <view class="bookExtends-content2">
+          <view class="bookExtends-background">
+            <text class="bookExtends-backgroundTitle"> 视频学习</text>
+            <video src="{{videosrc}}" binderror="videoErrorCallback" controls></video>
+          </view>
+        </view>
+
+      </block>
+    </view>
+  </swiper-item>
+
+</swiper>

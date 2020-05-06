@@ -1,0 +1,155 @@
+/* 文章页-导航栏样式 */
+.tab {
+  float: left;
+  width: 20%;
+  text-align: center;
+  padding: 10rpx 0;
+}
+ 
+.topTabSwiper {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  zoom: 1;
+}
+ 
+.topTabSwiper:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+ 
+.tabBorer {
+  border-bottom: 1px solid #d81e06;
+  color: #d81e06;
+}
+ 
+.swiper {
+  width: 100%;
+}
+
+.swiper_con {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: 20rpx 0;
+}
+
+
+/* 文章页-原文/译文样式  */
+.bookContent-title{
+  margin-top: 0rpx;
+  width: 100%;
+  height: 100%;
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+}
+
+.bookContent-author{
+  color: #d81e06;
+  margin-top: 20rpx;
+  text-align: center;
+}
+
+.bookContent-main{
+  color: #000;
+  margin-top: 50rpx;
+  text-align: left;
+  margin-left: 40rpx;
+  line-height:24px;
+  width: 90%;
+} 
+
+
+/* 文章页-句译样式 */
+.bookSentenceTranslate{
+  text-align: left;
+  margin-left: 40rpx;
+  line-height: 24px;
+  width: 90%;
+}
+
+.bookSentenceTranslate-original{
+  color: #0865D4;
+  margin-top: 20rpx;
+}
+
+.bookSentenceTranslate-translate{
+  color: #000;
+}
+
+/* 文章页-注释样式 */
+.bookNotes-word{
+  color: #0865D4;
+  margin-top: 20rpx;
+}
+
+.bookNotes-notes{
+  color: #000;
+}
+
+/* 文章页-扩展样式 */
+.bookExtends-content {
+  background-color: #F0EDE1;
+  width: 90%;
+  height: 17%;
+  margin-left: 40rpx;
+  margin-bottom: 30rpx;
+}
+
+.bookExtends-image-position {
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.bookExtends-image {
+  width: 30%;
+  padding-top: 20rpx;
+  height: 300rpx;
+}
+
+.bookExtends-text {
+  width: 60%;
+  margin-left: 5px;
+  display: flex;
+  margin-top: 44rpx;
+  flex-direction: column;
+}
+
+.bookExtends-textTitle {
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 12rpx;
+  word-break: break-all;
+}
+
+.bookExtends-textAuthor {
+  word-break: break-all;
+  font-size: 27rpx;
+  color: #000;
+}
+
+.bookExtends-backgroundTitle{
+  font-size: 34rpx;
+  font-weight: bold;
+  margin-top: 5rpx;
+  margin-bottom: 20rpx;
+}
+
+.bookExtends-background{
+  width: 94%;
+  color: #000;
+}
+
+
+.bookExtends-content2 {
+  background-color: #F0EDE1;
+  width: 90%;
+  height: 26%;
+  margin-left: 40rpx;
+  padding-left: 30rpx;
+  margin-bottom: 30rpx;
+}

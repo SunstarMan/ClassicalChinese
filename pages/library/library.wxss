@@ -1,0 +1,141 @@
+page {
+  height: 100%;
+  background-image: url(https://i.loli.net/2020/04/29/7HUXFoj92yWOkwv.png);
+}
+
+.librarycontainer {
+  width: 100%;
+  height: 100%;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+}
+
+/* *************************设置按文章题目搜索的搜索按钮 ***********************************/
+
+.search {
+  width: 98%;
+}
+
+.search_arr {
+  border: 1px solid #d0d0d0;
+  border-radius: 10rpx;
+  margin-left: 20rpx;
+}
+
+.search_arr input {
+  margin-left: 100rpx;
+  height: 60rpx;
+  border-radius: 5px;
+}
+
+.sousuo {
+  padding-left: 20%;
+  width: 40%;
+  line-height: 150%;
+  text-align: center;
+}
+
+.page_row {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5rpx;
+}
+
+.searchcion {
+  margin: 10rpx 10rpx 10rpx 10rpx;
+  position: absolute;
+  margin-left: 20%;
+  z-index: 2;
+  width: 15px;
+  height: 15px;
+  text-align: center;
+}
+
+/* **************************************按作者姓名搜索文章*********************************************** */
+
+/* ***********表头 ************/
+
+.header {
+  /* border-left-width: 2px;
+  border-left-style: solid;
+  border-left-color: green; */
+  border-bottom-width: 1rpx;
+  border-bottom-style: solid;
+  border-bottom-color: #000;
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.wenren {
+  font-family: 'Arial Negreta', 'Arial Normal', 'Arial';
+  font-weight: 700;
+  font-style: normal;
+  font-size: 42rpx;
+  color: #000;
+}
+
+.button-more {
+  margin-right: 5px;
+  font-family: '宋体 常规', '宋体';
+  font-weight: 400;
+  height: 60rpx;
+  font-size: 25rpx;
+  color: #4169e1;
+  opacity: 0.7;
+}
+
+/* **********文人头像及名字************** */
+
+.extra-container {
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.extra-item {
+  width: 22%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+}
+
+.mid-item {
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.extra-img {
+  width: 100%;
+  height: 150rpx;
+}
+
+.extra-img image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.extra-text {
+  font-size: 26rpx;
+  color: #333;
+  margin-top: 20rpx;
+}
+
+/* **************************************按作者姓名搜索文章*********************************************** */
+
+/* ***********表头与上头一样************/
+
+/* ***********书籍名字和图片格式与上头一样************/

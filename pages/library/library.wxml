@@ -1,0 +1,57 @@
+<view>
+  <view class='librarycontainer'>
+    <!-- 顶部推荐图片轮播 -->
+    <view class='selection'>
+      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+        <block wx:for="{{imgUrls}}" wx:key="*this">
+          <swiper-item>
+            <image src="{{item}}" class="slide-image" mode='scaleToFill' />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+    <!-- 按题目搜索文章 -->
+    <view class='page_row' bindtap="suo">
+      <view class="search">
+        <view class="search_arr">
+          <icon class="searchcion" color="#8B008B" size='16' type='search'></icon>
+          <input class="sousuo" placeholder-style='color:#8B008B' disabled placeholder="文章题目搜索" bindtap='title_search' />
+        </view>
+      </view>
+    </view>
+
+    <!-- 按作者姓名搜索文章 -->
+    <view class="header">
+      <text class="wenren" style='margin-left: 5px;'>文人</text>
+      <button class='button-more' bindtap="author_search">更多 ></button>
+    </view>
+
+    <!-- 列举一些文人可供点击 -->
+    <view class='extra-container'>
+      <view wx:for="{{authorImgUrls}}" wx:for-item="item" wx:key="idx" wx:for-index="idx" class='extra-item {{item.styles? "mid-item" : ""}}'>
+        <view class='extra-img'>
+          <image src="{{item.url}}"></image>
+        </view>
+        <button class='extra-text' bindtap="bind{{item.authorid}}">{{item.authorname}}</button>
+      </view>
+    </view>
+    <!-- 按书籍名字搜索文章 -->
+    <view class="header">
+      <text class="wenren" style='margin-left: 5px;'>书籍</text>
+      <button class='button-more' bindtap="book_search">更多 ></button>
+    </view>
+
+    <!-- 列举一些书籍可供点击 -->
+    <view class='extra-container'>
+      <view wx:for="{{bookImgUrls}}" wx:for-item="item" wx:key="idx" wx:for-index="idx" class='extra-item {{item.styles? "mid-item" : ""}}'>
+        <view class='extra-img'>
+          <image src="{{item.url}}"></image>
+        </view>
+        <button class='extra-text' bindtap="bind{{item.bookid}}">{{item.bookname}}</button>
+      </view>
+    </view>
+
+
+  </view>
+</view>
