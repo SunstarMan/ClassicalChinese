@@ -41,106 +41,22 @@ Page({
     ],
 
     //推荐部分书本数据数组
-    contentImgUrls: [{
-      bookid: 26,
-      title: '爱莲说',
-      url: 'https://i.loli.net/2020/04/29/aflWCki2Vm4Guzt.png',
-      author: '周敦颐'
-    }, {
-        bookid: 26,
-      title: '鸿门宴',
-      url: 'https://i.loli.net/2020/04/29/SFWChlr6gta5RQL.png',
-      author: '司马迁'
-    }, {
-        bookid: 26,
-      title: '窦娥冤',
-      url: 'https://i.loli.net/2020/04/29/vCyuAsJSRMlemOc.png',
-      author: '关汉卿'
-    }, {
-        bookid: 26,
-      title: '登泰山记',
-      url: 'https://i.loli.net/2020/04/29/BsjRuCwSDPmMeHp.png',
-      author: '姚鼐'
-    }, {
-        bookid: 26,
-      title: '爱莲说',
-      url: 'https://i.loli.net/2020/04/29/aflWCki2Vm4Guzt.png',
-      author: '周敦颐'
-    }, {
-        bookid: 26,
-      title: '鸿门宴',
-      url: 'https://i.loli.net/2020/04/29/SFWChlr6gta5RQL.png',
-      author: '司马迁'
-    }, {
-        bookid: 26,
-      title: '窦娥冤',
-      url: 'https://i.loli.net/2020/04/29/vCyuAsJSRMlemOc.png',
-      author: '关汉卿'
-    }, {
-        bookid: 26,
-      title: '登泰山记',
-      url: 'https://i.loli.net/2020/04/29/BsjRuCwSDPmMeHp.png',
-      author: '姚鼐'
-    }],
+    contentImgUrls: [],
     indicatorDots: true, //显示面板显示点
     autoplay: true, //自动切换
     interval: 5000, //切换时间
     duration: 100, //动画时长
 
     //音乐分类
-    ranks: [{
-        bookid: 26,
-        title: "揠苗助长",
-        author: "《孟子.公孙丑上》",
-        url: 'https://i.loli.net/2020/04/29/tUb1xk6qSGQWlKB.png'
-      },
-      {
-        bookid: 23,
-        title: "守株待兔",
-        author: "战国·韩·韩非《韩非子·五蠹》",
-        url: 'https://i.loli.net/2020/04/29/FifPxG2X7o3RgtK.png'
-      },
-      {
-        bookid: 18,
-        title: "精卫填海",
-        author: "先秦时代《山海经》",
-        url: 'https://i.loli.net/2020/04/29/eBox6PNMAX9dY71.png'
-      },
-      {
-        bookid: 19,
-        title: "两小儿辩日",
-        author: "《列子·汤问》（一作《列御寇·汤问》）",
-        url: 'https://i.loli.net/2020/04/29/hLB9zGlqWQwukp6.png'
-      },
-      {
-        bookid: 26,
-        title: "揠苗助长",
-        author: "《孟子.公孙丑上》",
-        url: 'https://i.loli.net/2020/04/29/tUb1xk6qSGQWlKB.png'
-      },
-      {
-        bookid: 23,
-        title: "守株待兔",
-        author: "战国·韩·韩非《韩非子·五蠹》",
-        url: 'https://i.loli.net/2020/04/29/FifPxG2X7o3RgtK.png'
-      },
-      {
-        bookid: 18,
-        title: "精卫填海",
-        author: "先秦时代《山海经》",
-        url: 'https://i.loli.net/2020/04/29/eBox6PNMAX9dY71.png'
-      },
-      {
-        bookid: 19,
-        title: "两小儿辩日",
-        author: "《列子·汤问》（一作《列御寇·汤问》）",
-        url: 'https://i.loli.net/2020/04/29/hLB9zGlqWQwukp6.png'
-      }
-    ],
+    primary: [],
+    //初中和高中
+    articles: [],
+    //课外
+    extra: []
   },
 
   // 设置的初中跳转的一篇文章
-  yueyanglouji(e){
+  yueyanglouji(e) {
     wx.navigateTo({
       url: '../article/article'
     })
@@ -151,6 +67,7 @@ Page({
       url: '../article/article'
     })
   },
+
   handleItemChange(e) {
     //接收传递过来的参数
     //console.log(e);
@@ -168,5 +85,73 @@ Page({
   },
 
 
+  gotoDetail: function(event) {
+    let article_id = event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '../article/article?article_id=' + article_id
+    })
+  },
 
+
+  gradeBook: function(grade, book, index) {
+    let self = this;
+    wx.request({
+      url: 'http://localhost:8080/home/gradebook?grade=' + grade + "&book=" + book,
+      method: 'GET',
+      success: function(res) {
+        let key = 'articles[' + index + ']';
+        self.setData({
+          [key]: res.data
+        })
+      }
+    })
+  },
+
+
+  onLoad: function() {
+    let self = this;
+    
+    wx.request({
+      url: 'http://localhost:8080/home/recommend?index=0',
+      method: 'GET',
+      success: function(res) {
+        self.setData({
+          contentImgUrls: res.data
+        })
+      }
+    });
+
+    wx.request({
+      url: 'http://localhost:8080/home/grade?grade=小学',
+      method: 'GET',
+      success: function(res) {
+        self.setData({
+          primary: res.data
+        })
+      }
+    });
+
+    wx.request({
+      url: 'http://localhost:8080/home/extra?index=0',
+      method: 'GET',
+      success: function (res) {
+        self.setData({
+          extra: res.data
+        })
+      }
+    });
+
+    this.gradeBook('初中', '七年级上册', 0);
+    this.gradeBook('初中', '七年级下册', 1);
+    this.gradeBook('初中', '八年级上册', 2);
+    this.gradeBook('初中', '八年级下册', 3);
+    this.gradeBook('初中', '九年级上册', 4);
+    this.gradeBook('初中', '九年级下册', 5);
+    this.gradeBook('高中', '必修上册', 6);
+    this.gradeBook('高中', '必修下册', 7);
+    this.gradeBook('高中', '选择性必修上册', 8);
+    this.gradeBook('高中', '选择性必修中册', 9);
+    this.gradeBook('高中', '选择性必修下册', 10);
+    this.gradeBook('高中', '选修', 11);
+  }
 })
