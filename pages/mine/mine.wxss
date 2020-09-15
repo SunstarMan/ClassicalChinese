@@ -1,0 +1,80 @@
+page {
+  height: 100%;
+  background-image: url(https://i.loli.net/2020/04/29/7HUXFoj92yWOkwv.png);
+}
+
+.mine {
+  display: flex;
+  flex-direction: column;
+}
+.head-image{
+  width: 15%;
+  border-radius: 50%;
+  margin-left: 310rpx;
+  margin-top: 150rpx
+}
+.button1 {
+  width: 50%;
+  margin-top: 70rpx;
+  background-color: rgba(67, 115, 129, 1);
+  border-radius: 10%;
+  font-size: 40rpx;
+  color: #fff;
+}
+
+.button2 {
+  width: 50%;
+  margin-top: 50rpx;
+  background-color: rgba(67, 115, 129, 1);
+  border-radius: 10%;
+  font-size: 40rpx;
+  color: #fff;
+}
+
+/* *****************点击登录后弹窗格式 ******************************/
+
+.title {
+  font-family: '隶书';
+  font-weight: 400;
+  font-style: normal;
+  /* font-size: 70rpx; */
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.login {
+  display: flex;
+  flex-direction: row;
+  border: 1rpx solid #d0d0d0;
+  height: 60rpx;
+  /* border-color: #000; */
+}
+
+.per-image {
+  width: 10%;
+  height: 30rpx;
+  border-radius: 50%;
+  margin-top: 10rpx;
+}
+
+.account {
+  width: 100%;
+  margin-top: 10rpx;
+  margin-left: 40rpx;
+}
+
+.add-login {
+  width: 100%;
+  border: 1rpx solid #d0d0d0;
+  margin-top: 10rpx;
+  height: 60rpx;
+}
+
+.add-login-text {
+  margin-left: 50rpx;
+}

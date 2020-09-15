@@ -23,7 +23,8 @@
         </view>
         <!-- 内容 -->
         <view class='content'>
-          <view class='content-item' wx:for="{{contentImgUrls}}" wx:key="url" wx:for-item="item">
+          <view class='content-item' wx:for="{{contentImgUrls}}" wx:key="url" wx:for-item="item" 
+          bindtap="gotoDetail" data-id="{{item.article_id}}">
             <!-- 图片 -->
             <image src="{{item.thumbnail}}" class="slide-image" mode='scaleToFill' />
             <!-- 图片上的文字说明 -->
@@ -200,11 +201,12 @@
         </view>
         <!-- 设置文章课外图片及题目 -->
         <view class='extra-container'>
-          <view wx:for="{{extra}}" wx:for-item="item" wx:key="article_id" class='extra-item {{item.styles? "mid-item" : ""}}'>
+          <view wx:for="{{extra}}" wx:for-item="item" wx:key="article_id" class='extra-item {{item.styles? "mid-item" : ""}}'
+          bindtap="gotoDetail" data-id="{{item.article_id}}">
             <view class='extra-img'>
               <image src="{{item.thumbnail}}"></image>
             </view>
-            <button class='extra-text' bindtap="bind{{item.article_id}}">{{item.title}}</button>
+            <button class='extra-text'>{{item.title}}</button>
           </view>
         </view>
       </view>

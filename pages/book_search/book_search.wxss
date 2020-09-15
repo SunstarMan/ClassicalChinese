@@ -52,3 +52,44 @@ page {
   color: #09bb07;
   white-space: nowrap;
 }
+
+/* *****************显示的列表 ************************/
+
+.primary-content {
+  background-color: #fff;
+  width: 95%;
+  height: 25%;
+  margin-left: 10rpx;
+  align-content: center;
+  border-width: 10rpx;
+  border-style: solid;
+  border-color: rgba(215, 215, 215, 1);
+}
+
+.text {
+  width: 100%;
+  margin-left: 5px;
+  display: flex;
+  height: 80rpx;
+  margin-top: 44rpx;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.text_title {
+  color: #000;
+  font-size: 40rpx;
+  font-family: '宋体 常规', '宋体';
+  font-weight: 400;
+}
+
+.text_author {
+  font-family: '宋体 常规', '宋体';
+  font-weight: 400;
+  font-size: 27rpx;
+  word-break: break-all;
+  color: #000;
+  margin-right: 10rpx;
+  margin-top: 10rpx;
+}
+

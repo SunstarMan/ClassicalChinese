@@ -5,11 +5,28 @@
         <!-- 搜索框 -->
         <view class="weui-search-bar__box">
           <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-          <input type="text" class="weui-search-bar__input" placeholder="请输入文人姓名" />
+          <input type="text" class="weui-search-bar__input" placeholder="请输入文人姓名" bindinput="author_input"/>
         </view>
       </view>
       <!-- 取消搜索 -->
       <view class="weui-search-bar__cancel-btn" bindtap='hideInput'>取消</view>
     </view>
+
+    <!-- 搜索列表 -->
+    <view>
+      <!-- 文章list -->
+      <block wx:for="{{articles}}" wx:key="article_id">
+        <navigator url="/pages/article/article?article_id={{item.article_id}}">
+          <view class="primary-content">
+            <view class="text">
+              <text class="text_title"> {{item.title}}</text>
+              <text class="text_author">{{item.author.dynasty}} / {{item.author.name}}</text>
+            </view>
+
+          </view>
+        </navigator>
+      </block>
+    </view>
+
   </view>
 </view>

@@ -45,10 +45,7 @@
   <!-- 句译 -->
   <swiper-item>
     <view class='swiper_con'>
-      <view wx:for="{{translations}}" wx:for-item="item">
-        <view class='bookContent-title'>
-          <text>{{item.title}}</text>
-        </view>
+      <view wx:for="{{translations}}" wx:for-item="item" wx:key="sequence">
         <view class="bookSentenceTranslate">
           <view class="bookSentenceTranslate-original">
             [{{item.sequence}}] {{item.sentence}}
@@ -64,16 +61,13 @@
   <!-- 注释 -->
   <swiper-item>
     <view class='swiper_con'>
-      <view wx:for="{{bookNotes}}" wx:for-item="item">
-        <view class='bookContent-title'>
-          <text>{{item.title}}</text>
-        </view>
+      <view wx:for="{{notes}}" wx:for-item="item">
         <view class="bookSentenceTranslate">
           <view class="bookSentenceTranslate-original">
             {{item.word}}
           </view>
           <view class="bookSentenceTranslate-translate">
-            {{item.notes}}
+            {{item.explanation}}
             <text>\n</text>
           </view>
         </view>
@@ -85,15 +79,14 @@
   <!-- 扩展 -->
   <swiper-item>
     <view class='swiper_con'>
-      <block wx:for="{{bookExtends}}" wx:for-item="item">
-
+      <block>
         <!-- 作者介绍 -->
         <view class="bookExtends-content">
           <view class="bookExtends-image-position">
-            <image class="bookExtends-image" src="{{item.url}}" />
+            <image class="bookExtends-image" src="{{author.portrait}}" />
             <view class="bookExtends-text">
-              <text class="bookExtends-textTitle"> {{item.authorName}}</text>
-              <text class="bookExtends-textAuthor"> {{item.authorAbout}}</text>
+              <text class="bookExtends-textTitle"> {{author.name}}</text>
+              <text class="bookExtends-textAuthor"> {{author.description}}</text>
             </view>
           </view>
         </view>
@@ -103,7 +96,7 @@
           <view class="bookExtends-background">
             <text class="bookExtends-backgroundTitle"> 创作背景</text>
             <text>\n</text>
-            <text> {{item.background}}</text>
+            <text> {{background}}</text>
           </view>
         </view>
 
@@ -111,7 +104,7 @@
         <view class="bookExtends-content2">
           <view class="bookExtends-background">
             <text class="bookExtends-backgroundTitle"> 视频学习</text>
-            <video src="{{videosrc}}" binderror="videoErrorCallback" controls></video>
+            <video src="{{videoSrc}}" binderror="videoErrorCallback" controls></video>
           </view>
         </view>
 

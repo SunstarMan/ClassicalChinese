@@ -33,7 +33,7 @@
         <view class='extra-img'>
           <image src="{{item.url}}"></image>
         </view>
-        <button class='extra-text' bindtap="bind{{item.authorid}}">{{item.authorname}}</button>
+        <button class='extra-text' bindtap="searchAuthor" data-author="{{item.authorname}}">{{item.authorname}}</button>
       </view>
     </view>
     <!-- 按书籍名字搜索文章 -->
@@ -48,7 +48,7 @@
         <view class='extra-img'>
           <image src="{{item.url}}"></image>
         </view>
-        <button class='extra-text' bindtap="bind{{item.bookid}}">{{item.bookname}}</button>
+        <button class='extra-text' bindtap="searchBook" data-provenance="{{item.bookname}}">{{item.bookname}}</button>
       </view>
     </view>
 

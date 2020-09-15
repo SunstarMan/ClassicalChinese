@@ -1,7 +1,5 @@
 Page({
   data: {
-    article_id: 0,
-
     currentData: 0,
 
     title: '',
@@ -9,39 +7,15 @@ Page({
     original: '',
     translation: '',
     translations: [],
-
-    bookContent: {
-      title: '岳阳楼记',
-      author: '宋代 . 范仲淹',
-      dynasty: '',
-      main: '' /*文章主体*/
-    },
-
-    bookTranslate: [{
-      title: '岳阳楼记',
-      translate: '' /*整篇文章的翻译 */
-    }],
-
-    bookSentenceTranslate: [{
-      title: '岳阳楼记',
-      original: '[1] 越明年，政通人和，百废具兴。',
-      /*原句*/
-      translate: '到了第二年，政事顺利，百姓安居乐业，各种荒废了的事业都兴办起来了。' /*句子对应的翻译 */
-    }],
+    notes: [],
+    background: '',
+    videoSrc: '',
 
     bookNotes: [{
       title: '岳阳楼记',
       word: '记：',
       notes: '一种文体。可以写景、叙事，多为议论。但目的是为了抒发作者的情怀和抱负（阐述作者的某些观念）。'
     }],
-
-    bookExtends: [{
-      authorName: '范仲淹',
-      authorAbout: '范仲淹（989－1052年），字希文，汉族，北宋著名的政治家、思想家、军事家、文学家，世称“范文正公”。范仲淹文学素养很高，写有著名的《岳阳楼记》。',
-      url: 'https://i.loli.net/2020/05/06/mMUZ4GQETrpz6Y8.jpg',
-      background: '   这篇文章写于庆历六年。范仲淹生活在北宋王朝内忧外患的年代，对内阶级矛盾日益突出。为巩固政权，以范仲淹为首的政治集团进行改革。但改革以失败告终。后来,他又因得罪吕夷简，被贬邓州，这篇文章写于邓州，而非写于岳阳楼。',
-      videosrc: 'http://mvvideo1.meitudata.com/540d2f68acf7a9581.mp4',
-    }]
   },
 
   // 视频错误回调
@@ -55,31 +29,41 @@ Page({
    */
   onLoad: function(options) {
     let self = this;
-    this.setData({
-      article_id: options.article_id
-    })
-    console.log("加载文章" + options.article_id);
     wx.request({
       url: 'http://localhost:8080/article/detail?article_id=' + options.article_id,
       method: 'GET',
       success: function(res) {
-        console.log(res.data);
         let original = '';
         let translation = '';
         for (let i = 0; i<res.data.translations.length; i++) {
           original += res.data.translations[i].sentence + '\n';
           translation += res.data.translations[i].translation + '\n';
         }
+        console.log(res.data);
+        for (let i = 0; i < res.data.extensions.length; i++) {
+          let extension = res.data.extensions[i];
+          if (extension.type === "创作背景") {
+            self.setData({
+              background: extension.content
+            })
+          } else if (extension.type === "视频") {
+            self.setData({
+              videoSrc: extension.content
+            })
+          }
+        }
         self.setData({
           title: res.data.title,
           author: res.data.author,
+          notes: res.data.notes,
           original: original,
           translation: translation,
           translations: res.data.translations
-        });
+        })
       }
     })
   },
+
 
   //获取当前滑块的article
   bindchange: function(e) {

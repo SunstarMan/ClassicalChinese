@@ -1,0 +1,23 @@
+<view>
+  <view class="mine">
+    <image class="head-image" src="https://i.loli.net/2020/05/08/a1qybKr8ZtdYPJe.jpg" mode="widthFix">
+    </image>
+    <button class="button1" bindtap="bindViewTap">登录</button>
+    <button class="button2" bindtap="entercollection">我的收藏</button>
+  </view>
+  <view>
+    <modal class="title" title="微信登录" hidden="{{modalHidden}}" confirm-text="确定" cancel-text="取消" bindconfirm="modalBindaconfirm" bindcancel="modalBindcancel">
+      <view class="content">
+        <!-- 插入头像和账号 -->
+        <view class="login">
+          <image class="per-image" src="https://i.loli.net/2020/05/08/a1qybKr8ZtdYPJe.jpg" mode="widthFix">
+          </image>
+          <text class="account">jy18070124118</text>
+        </view>
+        <view class="add-login">
+          <text class="add-login-text">+ 添加账号</text>
+        </view>
+      </view>
+    </modal>
+  </view>
+</view>

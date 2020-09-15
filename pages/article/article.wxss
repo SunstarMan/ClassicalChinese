@@ -54,7 +54,7 @@
 .bookContent-main{
   color: #000;
   margin-top: 50rpx;
-  text-align: left;
+  text-align: center;
   margin-left: 40rpx;
   line-height:24px;
   width: 90%;
@@ -92,7 +92,6 @@
 .bookExtends-content {
   background-color: #F0EDE1;
   width: 90%;
-  height: 17%;
   margin-left: 40rpx;
   margin-bottom: 30rpx;
 }

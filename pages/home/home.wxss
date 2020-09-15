@@ -69,37 +69,37 @@ page {
   position: relative;
 }
 
-/*推荐页的题目样式*/
-
-.content-item-title {
-  position: absolute; /*绝对定位,文字覆盖图片上*/
-  color: white;
-  bottom: 0px; /* 位置在父级元素底部 */
-  font-size: 17px;
-  width: 90%;
-  height: 100rpx; /* 设置容器高度,显示渐变的高度 */
-  text-align: center;
-  display: flex; /* flex布局,控制容器内文字元素在底部 */
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 1% 1% 1% 1%;
-  margin-bottom: 30rpx;
-}
-
 /*推荐页的作者名样式*/
 
 .content-item-author {
   position: absolute; /*绝对定位,文字覆盖图片上*/
   color: white;
+  background-color: rgba(0, 0, 0, 0.4);
   bottom: 0px; /* 位置在父级元素底部 */
   font-size: 12px;
-  width: 90%;
-  height: 100rpx; /* 设置容器高度,显示渐变的高度 */
+  width: 100%;
   text-align: center;
   display: flex; /* flex布局,控制容器内文字元素在底部 */
   flex-direction: column;
   justify-content: flex-end;
-  padding: 1% 1% 1% 1%;
+  padding-bottom: 5rpx;
+}
+
+/*推荐页的题目样式*/
+
+.content-item-title {
+  position: absolute; /*绝对定位,文字覆盖图片上*/
+  color: white;
+  bottom: 5rpx; /* 位置在父级元素底部 */
+  font-size: 17px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 90rpx; /* 设置容器高度,显示渐变的高度 */
+  text-align: center;
+  display: flex; /* flex布局,控制容器内文字元素在底部 */
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-bottom: 30rpx;
 }
 
 /***********************************首页-小学样式*************************************/

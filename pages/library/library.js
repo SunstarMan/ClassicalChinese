@@ -79,6 +79,18 @@ Page({
     ],
   },
 
+  searchAuthor: function(e) {
+    wx.navigateTo({
+      url: '../author_search/author_search?author=' + e.currentTarget.dataset.author
+    })
+  },
+
+  searchBook: function(e) {
+    wx.navigateTo({
+      url: '../book_search/book_search?provenance=' + e.currentTarget.dataset.provenance
+    })
+  },
+
   // 跳转到按题目搜索界面
   title_search: function() {
     wx.navigateTo({
@@ -86,7 +98,7 @@ Page({
     })
   },
   // 跳转到按作者搜索界面
-  author_search: function () {
+  author_search: function (e) {
     wx.navigateTo({
       url: '../author_search/author_search'
     })

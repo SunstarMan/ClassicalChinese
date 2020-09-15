@@ -55,19 +55,6 @@ Page({
     extra: []
   },
 
-  // 设置的初中跳转的一篇文章
-  yueyanglouji(e) {
-    wx.navigateTo({
-      url: '../article/article'
-    })
-  },
-  // 设置的课外跳转的一篇文章
-  bind26(e) {
-    wx.navigateTo({
-      url: '../article/article'
-    })
-  },
-
   handleItemChange(e) {
     //接收传递过来的参数
     //console.log(e);
